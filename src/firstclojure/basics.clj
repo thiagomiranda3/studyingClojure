@@ -1,9 +1,4 @@
-(ns firstclojure.core)
-
-(defn foo
-  "Não sou bom ainda"
-  [x]
-  (println x "Hello, World!"))
+(ns firstclojure.basics)
 
 ; Operadores infíxos.
 (+ 1 2 3)
