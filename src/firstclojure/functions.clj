@@ -76,19 +76,19 @@
 
 ; Usando uma função anônima com map
 (defn cumprimentos
-  [& lugares]
+  [& nomes]
   (map (fn [nome]
-         (str "Olá " nome)) lugares))
+         (str "Olá " nome)) nomes))
 
 (cumprimentos "Thiago" "Juca" "Bonner")                     ; ("Olá Thiago" "Olá Juca" "Olá Bonner")
 
 ; Forma compacta de se definir uma função anônima #(%). Os % são os parâmetros da função
 #("Olá " %)
 
-; Função cumprimetos com modo compacto de função anônima
+; Função cumprimentos com modo compacto de função anônima
 (defn cumprimentos
-  [& lugares]
-  (map #(str "Olá " %) lugares))
+  [& nomes]
+  (map #(str "Olá " %) nomes))
 
 ; Usando rest parameters com forma compacta. É usado com %&
 (#(map inc %&) 1 2 3)                                       ; 2 3 4
@@ -101,3 +101,10 @@
 ; Criando uma função personalizada e associando a uma variável
 (def inc3 (inc-maker 3))
 (inc3 3)                                                    ; 6
+
+; Criando variáveis locais
+(let [x 3] x)
+
+; exemplo com rest paramenter
+(def vetor ["A" "B" "C" "D" "E" "F" "G"])
+(let [[primeiro & resto] vetor] [primeiro resto])           ; ["A" ("B" "C" "D" "E" "F" "G")]
