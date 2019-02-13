@@ -108,3 +108,6 @@
 ; exemplo com rest paramenter
 (def vetor ["A" "B" "C" "D" "E" "F" "G"])
 (let [[primeiro & resto] vetor] [primeiro resto])           ; ["A" ("B" "C" "D" "E" "F" "G")]
+
+; Adiciona os parâmetros passados à coll
+(conj [0 1] 2 3 4)                                          ; [0 1 2 3 4]
