@@ -111,3 +111,17 @@
 
 ; Adiciona os parâmetros passados à coll
 (conj [0 1] 2 3 4)                                          ; [0 1 2 3 4]
+
+(defn fatorial
+  [valor]
+  (if (= valor 0)
+    1
+    (* valor (fatorial (- valor 1)))))
+
+; compõe funções em uma só. A ordem de chamada é da direita para a esquerda
+((comp inc *) 2 3)                                          ; 7
+
+; memoize armazena o resultado de parâmetros já passados caso a função seja indepotente
+(def memo-fatorial (memoize fatorial))
+(time (memo-fatorial 20))                                   ; "Elapsed time: 0.104346 msecs"
+(time (memo-fatorial 20))                                   ; "Elapsed time: 0.035923 msecs"
